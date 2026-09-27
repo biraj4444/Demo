@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Case study — Expressive Send</title>
+<meta name="description" content="Concept, design decisions, product considerations, and background on the Expressive Send interaction prototype.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <div class="compliance">
+    <strong>Independent concept</strong> · not affiliated with Meta or Instagram
+  </div>
+
+  <header class="site-nav">
+    <div class="wrap">
+      <a class="wordmark" href="index.html">Expressive Send</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a data-cfg="prototypeUrl" href="prototype.html">Prototype</a>
+        <a href="#files">Files</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="cs-header">
+      <div class="wrap">
+        <p class="eyebrow">Case study</p>
+        <h1>Expressive Send</h1>
+        <p class="subtitle">
+          What if sending a message could feel like sending something to another person?
+          This is the reasoning behind a small interaction prototype, and what it would take
+          to turn it into a real feature.
+        </p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="wrap prose">
+        <h2>The concept</h2>
+        <p>
+          Expressive Send adds one small beat to the ordinary act of sending a message. Instead of a
+          bubble simply appearing in the thread, a paper plane launches from the composer, follows a
+          smooth curved path with a light, natural zig-zag, reaches the recipient's avatar, produces a
+          brief expressive effect, and only then does the message settle into the conversation.
+        </p>
+        <p>
+          The animation is deliberately short and restrained. It is meant to add a moment of warmth to
+          a routine action, not to slow the conversation down or draw attention to itself on repeat use.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="wrap prose">
+        <h2>How it started</h2>
+        <p>
+          The idea began outside of messaging entirely. While experimenting with interactive animations
+          for a personal portfolio, an earlier project used a paper plane as a delivery-style visual —
+          something departing one point and arriving at another. Watching that animation land raised an
+          obvious question: the same visual idea could represent a message travelling from one person
+          to another, rather than a package.
+        </p>
+        <p>
+          That question turned into this prototype: a working chat interface where sending a message
+          triggers the plane, rather than just describing the idea in words or static mockups.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="wrap">
+        <h2>Interaction flow</h2>
+        <div class="flow-path">
+          <div class="flow-step"><span class="n">1</span><p>Type a message, same as usual.</p></div>
+          <div class="flow-step"><span class="n">2</span><p>Press send — the bubble doesn't appear right away.</p></div>
+          <div class="flow-step"><span class="n">3</span><p>A small paper plane lifts off from the composer.</p></div>
+          <div class="flow-step"><span class="n">4</span><p>It flies toward the recipient on a smooth, slightly curved path.</p></div>
+          <div class="flow-step"><span class="n">5</span><p>It reaches their avatar and produces a brief arrival effect.</p></div>
+          <div class="flow-step"><span class="n">6</span><p>The message appears in the thread.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="wrap prose">
+        <h2>Design decisions</h2>
+        <ul>
+          <li>A curved flight path with a slight, natural zig-zag rather than a straight line, so the plane reads as gliding rather than sliding.</li>
+          <li>Controlled rotation along the path, so the plane's nose follows its direction of travel instead of spinning freely.</li>
+          <li>A single, brief arrival effect at the recipient's avatar — enough to register as an event, short enough not to linger.</li>
+          <li>The message bubble appears immediately after arrival, so the animation never delays the actual content of the conversation.</li>
+          <li>Built mobile-first, since messaging is primarily a mobile experience.</li>
+          <li>Respects <code>prefers-reduced-motion</code>, collapsing the animation to a near-instant transition for anyone who has that setting enabled.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="wrap">
+        <h2>Product considerations</h2>
+        <div class="considerations">
+          <div class="consideration">
+            <h4>Performance</h4>
+            <p>The flight runs on transform and opacity changes driven by requestAnimationFrame, which keeps it light, but it hasn't been profiled against low-end devices or a production message list.</p>
+          </div>
+          <div class="consideration">
+            <h4>Accessibility</h4>
+            <p>Reduced motion is respected at the CSS level. It hasn't yet been tested with screen readers, and the moment when the message becomes available to assistive technology needs its own design pass.</p>
+          </div>
+          <div class="consideration">
+            <h4>Repeated messages</h4>
+            <p>Sending several messages quickly is untested territory — whether each one should get its own flight, queue, or a simplified treatment after the first is an open question.</p>
+          </div>
+          <div class="consideration">
+            <h4>Device compatibility</h4>
+            <p>Built and tested primarily on a single Android device in a mobile browser. Tablet, foldable, and older-device behavior hasn't been verified.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="wrap prose">
+        <h2>Prototype limitations</h2>
+        <p>
+          This is an interaction prototype, not a complete messaging system. It runs against a fixed,
+          scripted conversation rather than a real backend, has one animation style rather than a range
+          of options, and hasn't been through the kind of device, performance, or accessibility testing a
+          shipped feature would need. It exists to demonstrate the core idea clearly, not to serve as a
+          finished implementation.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="wrap prose">
+        <h2>Where this could go</h2>
+        <p>
+          A product and engineering team could take this in several directions: different animation
+          styles or intensities, a lighter treatment for rapid-fire messages, personalization tied to a
+          recipient or a relationship, deeper accessibility work, and integration with an existing
+          messaging architecture rather than a scripted demo. The version here is meant as a starting
+          point for that conversation, not a proposal to ship as-is.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="wrap prose">
+        <h2>About this project</h2>
+        <p>
+          My name is Kaustav Khanikar. I'm 20, a college student in Dibrugarh, Assam, India, and I'm
+          self-taught — learning full-stack and frontend development through my own projects rather than
+          a formal program. I used AI tools, including Claude, as development assistants while building
+          this prototype; the concept, direction, and decisions are my own.
+        </p>
+        <p>
+          I come from a family without a stable source of income, so most of what I know has come from
+          building things with whatever I have access to, including working entirely from a phone. This
+          project is one of those things: a way of showing an idea rather than only describing it, in the
+          hope that it reaches people who could take it further than I can on my own.
+        </p>
+        <blockquote>A message doesn't have to feel like it simply disappears after pressing send.</blockquote>
+        <p>
+          Thank you for taking the time to look at this concept.
+        </p>
+      </div>
+    </section>
+
+    <section class="files" id="files">
+      <div class="wrap">
+        <h2>Project files</h2>
+        <div class="file-list">
+          <a class="file-item" data-cfg="demoVideoSrc" href="assets/video/demo.mp4">
+            <span>
+              <span class="label">Demo video</span><br>
+              <span class="desc">Screen recording of the interaction</span>
+            </span>
+            <span class="go">Open</span>
+          </a>
+          <a class="file-item" data-cfg="prototypeUrl" href="prototype.html">
+            <span>
+              <span class="label">Live prototype</span><br>
+              <span class="desc">The interactive build, in your browser</span>
+            </span>
+            <span class="go">Open</span>
+          </a>
+          <a class="file-item" data-cfg="githubUrl" href="#" target="_blank" rel="noopener">
+            <span>
+              <span class="label">Source code</span><br>
+              <span class="desc">Full HTML / CSS / JS on GitHub</span>
+            </span>
+            <span class="go">View ↗</span>
+          </a>
+          <a class="file-item" href="index.html">
+            <span>
+              <span class="label">Overview</span><br>
+              <span class="desc">Back to the concept summary</span>
+            </span>
+            <span class="go">Open</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>Independent concept, not affiliated with, endorsed by, or built by Meta or Instagram.</span>
+      <span data-cfg="author">Kaustav Khanikar</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

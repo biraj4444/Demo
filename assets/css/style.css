@@ -1,0 +1,339 @@
+/* Expressive Send — presentation site
+   Paper, ink and a dusk-sky accent: the palette echoes the product's own
+   material (paper plane, night sky messaging surface) without borrowing
+   the prototype's neon chrome. */
+
+:root{
+  --paper:      #F5F3EE;
+  --paper-dim:  #EBE8E0;
+  --ink:        #1C1A18;
+  --ink-soft:   #3A3733;
+  --muted:      #726E67;
+  --rule:       #DAD6CB;
+  --sky:        #2F5D86;
+  --sky-deep:   #21435F;
+  --coral:      #C1516B;
+
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --measure: 40rem;
+  --edge: 1.5rem;
+}
+
+@media (min-width: 720px){
+  :root{ --edge: 3rem; }
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+html{ -webkit-text-size-adjust: 100%; }
+
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg, video{ max-width: 100%; display: block; }
+
+a{ color: inherit; }
+
+::selection{ background: var(--sky); color: var(--paper); }
+
+:focus-visible{
+  outline: 2px solid var(--sky);
+  outline-offset: 3px;
+}
+
+h1, h2, h3{
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0;
+}
+
+p{ margin: 0; }
+
+.wrap{
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-left: var(--edge);
+  padding-right: var(--edge);
+}
+
+.prose{ max-width: var(--measure); }
+
+/* ---------- compliance strip ---------- */
+.compliance{
+  background: var(--ink);
+  color: #C9C5BC;
+  font-size: .75rem;
+  letter-spacing: .01em;
+  text-align: center;
+  padding: .55rem var(--edge);
+}
+.compliance strong{ color: var(--paper); font-weight: 600; }
+
+/* ---------- nav ---------- */
+.site-nav{
+  border-bottom: 1px solid var(--rule);
+  padding: 1.1rem 0;
+}
+.site-nav .wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .6rem 1rem;
+}
+.wordmark{
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.site-nav nav{ display: flex; gap: 1.6rem; }
+.site-nav nav a{
+  font-size: .92rem;
+  text-decoration: none;
+  color: var(--ink-soft);
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  margin-left: 1.6rem;
+}
+.site-nav nav a:first-child{ margin-left: 0; }
+.site-nav nav a:hover{ border-bottom-color: var(--ink-soft); }
+
+/* ---------- buttons ---------- */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--sans);
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: .8rem 1.35rem;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.btn:active{ transform: scale(.98); }
+.btn-primary{ background: var(--ink); color: var(--paper); }
+.btn-primary:hover{ background: var(--sky-deep); }
+.btn-quiet{
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--rule);
+}
+.btn-quiet:hover{ border-color: var(--ink-soft); }
+
+.actions{ display: flex; flex-wrap: wrap; gap: .9rem; }
+
+/* ---------- hero ---------- */
+.hero{ padding: 3.4rem 0 3rem; }
+.hero-grid{
+  display: grid;
+  gap: 2.6rem;
+}
+@media (min-width: 900px){
+  .hero-grid{
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    gap: 3.5rem;
+  }
+}
+.eyebrow{
+  font-size: .8rem;
+  color: var(--muted);
+  margin-bottom: .9rem;
+}
+.hero h1{
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -.01em;
+}
+.hero .subtitle{
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  margin-top: 1rem;
+  max-width: 34rem;
+}
+.hero .lede{
+  margin-top: 1.3rem;
+  color: var(--muted);
+  max-width: 34rem;
+}
+.hero .actions{ margin-top: 2rem; }
+
+/* ---------- phone frame / video ---------- */
+.frame-wrap{ display: flex; justify-content: center; }
+.phone-frame{
+  position: relative;
+  width: min(100%, 300px);
+  border-radius: 28px;
+  padding: 10px;
+  background: linear-gradient(160deg, #26241f, #100f0d);
+  box-shadow: 0 30px 60px -20px rgba(28,26,24,.45);
+}
+.phone-frame::before{
+  content: "";
+  position: absolute;
+  left: 50%; top: 18px;
+  width: 46px; height: 5px;
+  border-radius: 3px;
+  background: rgba(245,243,238,.18);
+  transform: translateX(-50%);
+}
+.phone-screen{
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 9 / 19.5;
+}
+.phone-screen video{ width: 100%; height: 100%; object-fit: cover; }
+.frame-caption{
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+  margin-top: .9rem;
+}
+
+/* ---------- flow ---------- */
+.flow{ padding: 2.6rem 0 3.2rem; border-top: 1px solid var(--rule); }
+.flow h2{ font-size: 1.7rem; margin-bottom: .4rem; }
+.flow-note{ color: var(--muted); max-width: 34rem; margin-bottom: 2.2rem; }
+.flow-path{
+  display: grid;
+  gap: 0;
+  position: relative;
+}
+@media (min-width: 800px){
+  .flow-path{ grid-template-columns: repeat(6, 1fr); }
+}
+.flow-step{
+  position: relative;
+  padding: 1.3rem 1.1rem 1.3rem 0;
+  border-top: 1px solid var(--rule);
+}
+@media (min-width: 800px){
+  .flow-step{
+    border-top: none;
+    border-left: 1px solid var(--rule);
+    padding: 0 1rem;
+  }
+  .flow-step:first-child{ border-left: none; padding-left: 0; }
+}
+.flow-step .n{
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--sky-deep);
+  display: block;
+  margin-bottom: .35rem;
+}
+.flow-step p{ font-size: .9rem; color: var(--ink-soft); }
+
+/* ---------- section rhythm ---------- */
+.section{ padding: 3rem 0; }
+.section-border{ border-top: 1px solid var(--rule); }
+.section h2{ font-size: 1.7rem; margin-bottom: 1.1rem; }
+.section h3{ font-size: 1.15rem; margin: 1.6rem 0 .5rem; color: var(--ink); }
+.section .prose p + p,
+.section .prose p + ul,
+.section .prose ul + p{ margin-top: .9rem; }
+.section .prose ul{ margin: 0; padding-left: 1.2rem; }
+.section .prose li{ margin: .35rem 0; color: var(--ink-soft); }
+.section .prose p{ color: var(--ink-soft); }
+
+.considerations{
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+@media (min-width: 720px){
+  .considerations{ grid-template-columns: 1fr 1fr; }
+}
+.consideration{
+  border: 1px solid var(--rule);
+  padding: 1.1rem 1.2rem;
+  border-radius: 3px;
+}
+.consideration h4{
+  font-family: var(--sans);
+  font-size: .82rem;
+  font-weight: 700;
+  margin: 0 0 .4rem;
+  color: var(--sky-deep);
+}
+.consideration p{ font-size: .92rem; color: var(--ink-soft); }
+
+blockquote{
+  margin: 1.6rem 0;
+  padding-left: 1.2rem;
+  border-left: 2px solid var(--coral);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+/* ---------- files / links ---------- */
+.files{
+  border-top: 1px solid var(--rule);
+  padding: 2.8rem 0 3.2rem;
+}
+.files h2{ font-size: 1.4rem; margin-bottom: 1.4rem; }
+.file-list{
+  display: grid;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.file-item{
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.file-item:hover{ background: var(--paper-dim); }
+.file-item .label{ font-weight: 600; font-size: .95rem; }
+.file-item .desc{ font-size: .82rem; color: var(--muted); }
+.file-item .go{ color: var(--muted); font-size: .9rem; flex-shrink: 0; }
+
+/* ---------- footer ---------- */
+.site-footer{
+  border-top: 1px solid var(--rule);
+  padding: 2rem 0 2.4rem;
+  font-size: .82rem;
+  color: var(--muted);
+}
+.site-footer .wrap{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 1.4rem;
+  justify-content: space-between;
+}
+
+/* ---------- case study specific ---------- */
+.cs-header{ padding: 3rem 0 2rem; border-bottom: 1px solid var(--rule); }
+.cs-header .eyebrow{ margin-bottom: 1rem; }
+.cs-header h1{ font-size: clamp(2.1rem, 5vw, 3rem); }
+.cs-header .subtitle{ color: var(--muted); margin-top: 1rem; max-width: 36rem; font-size: 1.05rem; }
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,2 @@
+Put your demo.mp4 here, or use scripts/upload_to_cloudinary.py and update
+assets/js/config.js -> demoVideoSrc with the resulting URL instead.

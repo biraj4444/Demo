@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <rect width="800" height="1000" fill="#17181B"/>
+  <path d="M 660 860 C 560 760, 520 700, 470 640 C 420 580, 400 520, 360 460 C 320 400, 260 360, 190 300"
+        fill="none" stroke="#3C4550" stroke-width="2" stroke-dasharray="2 14" stroke-linecap="round"/>
+  <circle cx="190" cy="300" r="26" fill="none" stroke="#5B6B7D" stroke-width="1.5"/>
+  <circle cx="190" cy="300" r="8" fill="#5B6B7D"/>
+  <g transform="translate(636,838) rotate(-38)">
+    <path d="M28 2 L2 13 C0 14 0 17 2 18 L11 22 L15 31 C16 33 19 33 20 31 L28 2Z"
+          fill="#E7A5B4" stroke="#F5F3EE" stroke-width="0.8"/>
+    <path d="M4 14 L23 6 L12 18Z" fill="#F5F3EE" opacity=".55"/>
+  </g>
+  <text x="400" y="960" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="15" fill="#6B7280" letter-spacing="0.5">Demo — tap to play</text>
+</svg>
