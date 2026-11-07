@@ -13,10 +13,17 @@ window.SITE_CONFIG = {
   prototypeUrl: "prototype.html",
 
   // Your GitHub repository (or any source-code link).
-  githubUrl: "https://github.com/your-username/expressive-send",
+  githubUrl: "https://github.com/kaustav4535-mongo/Sendconcept",
 
   // The case study page.
   caseStudyUrl: "case-study.html",
+
+  // Profile photo on the About page (falls back to initials if it can't load).
+  profileImage: "https://iili.io/njMHxe9.png",
+
+  // Where ratings/feedback are emailed when a visitor presses "Send rating".
+  // Leave empty to only save the rating on the visitor's own device.
+  feedbackEmail: "kaustav4535@gmail.com",
 
   // Author credit line used in a couple of places.
   author: "Kaustav Khanikar"

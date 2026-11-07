@@ -11,6 +11,7 @@ That disclaimer is shown on every page — do not remove it.
 
 ```
 index.html          Homepage / hero, demo video, "how it works", file links
+about.html            About page with profile box
 case-study.html      Full case study: concept, decisions, considerations, limitations, background
 prototype.html        The interactive prototype (unmodified animation/behavior, just a back button added)
 assets/css/style.css   Shared styles for the homepage and case study
@@ -29,8 +30,10 @@ Open `assets/js/config.js`:
 window.SITE_CONFIG = {
   demoVideoSrc: "assets/video/demo.mp4",   // or a Cloudinary URL
   prototypeUrl: "prototype.html",
-  githubUrl: "https://github.com/your-username/expressive-send",
+  githubUrl: "https://github.com/kaustav4535-mongo/Sendconcept",
   caseStudyUrl: "case-study.html",
+  profileImage: "https://iili.io/njMHxe9.png",  // About page photo
+  feedbackEmail: "",                            // where ratings are emailed
   author: "Kaustav Khanikar"
 };
 ```
@@ -85,3 +88,10 @@ same HTML/CSS/JS files directly with no Python involved at all.
 
 No build step, no dependencies, no server — it's plain HTML/CSS/JS the whole
 way through.
+
+## Rating box
+
+The rating box (home page and case study) has no backend. A visitor's score is
+saved only in their own browser. If you set `feedbackEmail` in `config.js`,
+pressing "Send rating" opens their email app with the score and comment
+pre-filled, addressed to you. With it empty, you receive nothing.

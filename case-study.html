@@ -18,6 +18,7 @@
       <a class="wordmark" href="index.html">Expressive Send</a>
       <nav>
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a data-cfg="prototypeUrl" href="prototype.html">Prototype</a>
         <a href="#files">Files</a>
       </nav>
@@ -150,7 +151,7 @@
 
     <section class="section section-border">
       <div class="wrap prose">
-        <h2>About me </h2>
+        <h2>About this project</h2>
         <p>
           My name is Kaustav Khanikar. I'm 20, a college student in Dibrugarh, Assam, India, and I'm
           self-taught — learning full-stack and frontend development through my own projects rather than
@@ -158,8 +159,10 @@
           this prototype; the concept, direction, and decisions are my own.
         </p>
         <p>
-          
-         
+          I come from a family without a stable source of income, so most of what I know has come from
+          building things with whatever I have access to, including working entirely from a phone. This
+          project is one of those things: a way of showing an idea rather than only describing it, in the
+          hope that it reaches people who could take it further than I can on my own.
         </p>
         <blockquote>A message doesn't have to feel like it simply disappears after pressing send.</blockquote>
         <p>
@@ -203,12 +206,39 @@
         </div>
       </div>
     </section>
+
+    <section class="rate" id="rate">
+      <div class="wrap">
+        <div class="rate-box">
+          <h2>Rate this concept</h2>
+          <p class="rate-help">After trying the prototype, how did the interaction feel? 1 is "not for me", 5 is "I'd use this".</p>
+          <form id="rateForm" novalidate>
+            <fieldset>
+              <legend class="sr">Rating out of 5</legend>
+              <div class="stars">
+                <input class="sr" type="radio" name="score" id="s1" value="1"><label for="s1"><span class="sr">1 out of 5</span><span aria-hidden="true">★</span></label>
+                <input class="sr" type="radio" name="score" id="s2" value="2"><label for="s2"><span class="sr">2 out of 5</span><span aria-hidden="true">★</span></label>
+                <input class="sr" type="radio" name="score" id="s3" value="3"><label for="s3"><span class="sr">3 out of 5</span><span aria-hidden="true">★</span></label>
+                <input class="sr" type="radio" name="score" id="s4" value="4"><label for="s4"><span class="sr">4 out of 5</span><span aria-hidden="true">★</span></label>
+                <input class="sr" type="radio" name="score" id="s5" value="5"><label for="s5"><span class="sr">5 out of 5</span><span aria-hidden="true">★</span></label>
+              </div>
+            </fieldset>
+            <label class="rate-label" for="rateComment">Comment (optional)</label>
+            <textarea id="rateComment" rows="3" maxlength="600" placeholder="What worked, what didn't?"></textarea>
+            <div class="actions">
+              <button class="btn btn-primary" type="submit">Send rating</button>
+            </div>
+            <p class="rate-msg" id="rateMsg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
       <span>Independent concept, not affiliated with, endorsed by, or built by Meta or Instagram.</span>
-      <span data-cfg="author">Kaustav Khanikar</span>
+      <span><span data-cfg="author">Kaustav Khanikar</span> · <a data-cfg="emailLink" href="mailto:kaustav4535@gmail.com">kaustav4535@gmail.com</a></span>
     </div>
   </footer>
 
